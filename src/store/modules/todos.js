@@ -1,30 +1,25 @@
 // import axios from 'axios';
 
 const state = {
-    todos: [
-        {
-            id: 1,
-            title: "Todo One"
-        },
-        {
-            id: 2,
-            title: "Todo Two"
-        },
-        {
-            id: 3,
-            title: "Todo Three"
-        }
-    ]
+  todos: [],
 };
 
 const getters = {
-    allTodos: (state) => state.todos
+  allTodos: state => state.todos
 };
+console.log("%%%", getters);
 
-const actions = {};
+const actions = {
+    async fetchToDo({commit}) {
+
+    }
+};
 
 const mutations = {};
 
 export default {
-    state, getters, actions, mutations
-}
+  state,
+  getters,
+  actions,
+  mutations,
+};
