@@ -3,6 +3,7 @@
     <h3>Todos</h3>
     <div class="todos">
       <div class="todo">
+        <div v-for="todo in allTodos" :key="todo.id" class="todo"></div>
         <!-- {{ todo.title }} -->
         jhujkmlk
       </div>
@@ -11,11 +12,15 @@
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Todos",
-  // computed: mapGetters(["allTodos"]),
+  methods: { ...mapActions(["fetchTodos"]) },  
+  computed: mapGetters(["allTodos"]),
+  created() {
+    this.fetchTodos();
+  }
 };
 </script>
 <style scoped>
@@ -32,6 +37,6 @@ export default {
   border-radius: 5px;
   text-align: center;
   position: relative;
-  cursor: pointer; 
+  cursor: pointer;
 }
 </style>

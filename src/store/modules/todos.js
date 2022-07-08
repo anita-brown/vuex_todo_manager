@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 const state = {
   todos: [],
@@ -10,8 +10,9 @@ const getters = {
 console.log("%%%", getters);
 
 const actions = {
-    async fetchToDo({commit}) {
-
+    async fetchToDo() {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/todos')
+        console.log("data",response.data)
     }
 };
 
